@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "JIGGAI Docs",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -11,38 +11,41 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Docs",
         "groups": [
           {
             "group": "Getting started",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "index"
             ]
           },
           {
-            "group": "Customization",
+            "group": "ClawRecipes",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "clawrecipes/index",
+              "clawrecipes/installation",
+              "clawrecipes/commands",
+              "clawrecipes/architecture",
+              "clawrecipes/recipe-format",
+              "clawrecipes/team-workflow",
+              "clawrecipes/workflow-runs-file-first",
+              "clawrecipes/memory-model",
+              "clawrecipes/bundled-recipes",
+              "clawrecipes/agents-and-skills",
+              "clawrecipes/outbound-posting",
+              "clawrecipes/clawcipes-kitchen",
+              "clawrecipes/tutorial-create-recipe",
+              "clawrecipes/shared-context",
+              "clawrecipes/verify-built-in-team-recipes",
+              "clawrecipes/releasing"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "ClawKitchen",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "clawkitchen/index",
+              "clawkitchen/goals",
+              "clawkitchen/qa-auth"
             ]
           }
         ]
@@ -55,15 +58,6 @@
             "pages": [
               "api-reference/introduction"
             ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
           }
         ]
       }
@@ -71,14 +65,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "anchor": "ClawRecipes repo",
+          "href": "https://github.com/JIGGAI/ClawRecipes",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "ClawKitchen repo",
+          "href": "https://github.com/JIGGAI/ClawKitchen",
+          "icon": "grid-2"
         }
       ]
     }
@@ -90,33 +84,33 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "GitHub",
+        "href": "https://github.com/JIGGAI/JIGGAIClawDocs"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "ClawKitchen",
+      "href": "https://clawkitchen.ai"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/clawrecipes",
+      "github": "https://github.com/JIGGAI",
+      "linkedin": "https://www.linkedin.com"
     }
   }
 }
