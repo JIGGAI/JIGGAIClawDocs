@@ -94,7 +94,7 @@ async function syncProduct(config) {
     const title = titleFromContent(filename, sourceText);
     const description = descriptionFromContent(sourceText);
     const outputPath = path.join(config.outputDir, outputFilename);
-    const generated = `---\ntitle: "${escapeYaml(title)}"\ndescription: "${escapeYaml(description)}"\n---\n\n<!-- GENERATED FILE: do not edit directly -->\n<!-- Source: ${config.sourceRepo}/docs/${filename} @ ${config.sourceCommit} -->\n\n${sourceText}`;
+    const generated = `---\ntitle: "${escapeYaml(title)}"\ndescription: "${escapeYaml(description)}"\n---\n\n${sourceText}`;
     await fs.writeFile(outputPath, generated, "utf8");
     manifestEntries.push({
       product: config.product,
