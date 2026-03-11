@@ -1,0 +1,82 @@
+---
+title: "Verify built-in team recipes (scaffold + cron jobs)"
+description: "This checklist verifies that each built-in **team** recipe scaffolds correctly and that any recipe-defined cron jobs reconcile safely."
+---
+
+<!-- GENERATED FILE: do not edit directly -->
+<!-- Source: JIGGAI/ClawRecipes/docs/verify-built-in-team-recipes.md @ ba701c6 -->
+
+# Verify built-in team recipes (scaffold + cron jobs)
+
+This checklist verifies that each built-in **team** recipe scaffolds correctly and that any recipe-defined cron jobs reconcile safely.
+
+## Prereqs
+- You have OpenClaw installed and `openclaw` is on PATH.
+- Set recipes cron installation behavior in config (safe default is `prompt`).
+  - `cronInstallation: prompt` ⇒ asks before installing cron jobs
+  - `cronInstallation: on` ⇒ installs cron jobs (enabled state still depends on `enabledByDefault`)
+  - `cronInstallation: off` ⇒ skips cron reconciliation
+
+## Teams to verify
+- product-team
+- research-team
+- writing-team
+- social-team
+- customer-support-team
+- development-team
+
+## Commands
+
+### Scaffold each team
+
+> Note: `--team-id` must end with `-team`.
+
+For each recipe id `<rid>` above:
+
+```bash
+openclaw recipes scaffold-team <rid> --team-id <rid>-team --apply-config
+```
+
+### Verify scaffold output
+
+For each `~/.openclaw/workspace-<rid>-team/` ensure:
+- `notes/plan.md` exists
+- `notes/status.md` exists
+- `shared-context/priorities.md` exists
+- `shared-context/agent-outputs/` exists
+- `work/backlog/`, `work/in-progress/`, `work/testing/`, `work/done/` exist
+
+### Verify cron reconciliation behavior
+
+1) With `cronInstallation: prompt`:
+   - Re-run scaffold-team and confirm you are prompted.
+   - Answer **No** and verify that installed jobs are created **disabled** (or not created, depending on implementation).
+
+2) With `cronInstallation: on`:
+   - Re-run scaffold-team and verify recipe cron jobs are installed.
+
+3) Confirm jobs are listed:
+
+```bash
+openclaw cron list
+```
+
+4) Optionally force-run a job:
+
+```bash
+openclaw cron run <jobId>
+```
+
+## Cleanup (important)
+These verification commands create temporary `workspace-<teamId>` directories.
+
+After you finish (or between runs), clean up test workspaces so they don’t accumulate:
+
+```bash
+openclaw recipes cleanup-workspaces --prefix smoke- --prefix qa- --prefix tmp- --prefix test- --yes
+```
+
+## What to record
+- Any recipe that fails to scaffold
+- Any cron job install/update errors
+- Any cron job that runs but fails (include logs / error output)

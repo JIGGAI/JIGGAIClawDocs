@@ -1,0 +1,136 @@
+#!/usr/bin/env node
+
+import fs from "node:fs/promises";
+import path from "node:path";
+
+const root = "/home/control/JIGGAIClawDocs";
+const products = [
+  {
+    product: "clawrecipes",
+    sourceRepo: "JIGGAI/ClawRecipes",
+    sourceCommit: process.env.CLAWRECIPES_COMMIT ?? "unknown",
+    sourceDir: "/home/control/ClawRecipes/docs",
+    outputDir: path.join(root, "clawrecipes"),
+    exclude: new Set(["index.mdx"]),
+    order: [
+      "INSTALLATION.md",
+      "COMMANDS.md",
+      "ARCHITECTURE.md",
+      "RECIPE_FORMAT.md",
+      "TEAM_WORKFLOW.md",
+      "WORKFLOW_RUNS_FILE_FIRST.md",
+      "MEMORY_MODEL.md",
+      "BUNDLED_RECIPES.md",
+      "AGENTS_AND_SKILLS.md",
+      "OUTBOUND_POSTING.md",
+      "CLAWCIPES_KITCHEN.md",
+      "TUTORIAL_CREATE_RECIPE.md",
+      "shared-context.md",
+      "verify-built-in-team-recipes.md",
+      "releasing.md"
+    ]
+  },
+  {
+    product: "clawkitchen",
+    sourceRepo: "JIGGAI/ClawKitchen",
+    sourceCommit: process.env.CLAWKITCHEN_COMMIT ?? "unknown",
+    sourceDir: "/home/control/clawkitchen/docs",
+    outputDir: path.join(root, "clawkitchen"),
+    exclude: new Set(["index.mdx"]),
+    order: ["GOALS.md", "QA_AUTH.md"]
+  }
+];
+
+function slugFromFilename(filename) {
+  return filename
+    .replace(/\.md$/i, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function titleFromContent(filename, content) {
+  const firstHeading = content.match(/^#\s+(.+)$/m)?.[1]?.trim();
+  if (firstHeading) return firstHeading;
+  return filename
+    .replace(/\.md$/i, "")
+    .replace(/[_-]+/g, " ")
+    .replace(/\b\w/g, (m) => m.toUpperCase());
+}
+
+function descriptionFromContent(content) {
+  const lines = content.split(/\r?\n/).map((line) => line.trim());
+  const firstParagraph = lines.find((line) => line && !line.startsWith("#") && !line.startsWith("```"));
+  return firstParagraph ? firstParagraph.slice(0, 180) : "";
+}
+
+function escapeYaml(value) {
+  return String(value).replace(/"/g, '\\"');
+}
+
+async function syncProduct(config) {
+  const entries = await fs.readdir(config.sourceDir, { withFileTypes: true });
+  const files = entries
+    .filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith(".md"))
+    .map((entry) => entry.name)
+    .sort((a, b) => {
+      const ai = config.order.indexOf(a);
+      const bi = config.order.indexOf(b);
+      if (ai !== -1 || bi !== -1) {
+        return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+      }
+      return a.localeCompare(b);
+    });
+
+  await fs.mkdir(config.outputDir, { recursive: true });
+
+  const manifestEntries = [];
+  for (const filename of files) {
+    const sourcePath = path.join(config.sourceDir, filename);
+    const sourceText = await fs.readFile(sourcePath, "utf8");
+    const slug = slugFromFilename(filename);
+    const outputFilename = `${slug}.mdx`;
+    if (config.exclude.has(outputFilename)) continue;
+    const title = titleFromContent(filename, sourceText);
+    const description = descriptionFromContent(sourceText);
+    const outputPath = path.join(config.outputDir, outputFilename);
+    const generated = `---\ntitle: "${escapeYaml(title)}"\ndescription: "${escapeYaml(description)}"\n---\n\n<!-- GENERATED FILE: do not edit directly -->\n<!-- Source: ${config.sourceRepo}/docs/${filename} @ ${config.sourceCommit} -->\n\n${sourceText}`;
+    await fs.writeFile(outputPath, generated, "utf8");
+    manifestEntries.push({
+      product: config.product,
+      sourceRepo: config.sourceRepo,
+      sourcePath: `docs/${filename}`,
+      targetPath: `${config.product}/${outputFilename}`,
+      sourceCommit: config.sourceCommit,
+      title
+    });
+  }
+
+  return manifestEntries;
+}
+
+async function main() {
+  await fs.mkdir(path.join(root, "generated"), { recursive: true });
+  const manifest = {
+    generatedAt: new Date().toISOString(),
+    sources: []
+  };
+
+  for (const product of products) {
+    const entries = await syncProduct(product);
+    manifest.sources.push(...entries);
+  }
+
+  await fs.writeFile(
+    path.join(root, "generated", "docs-manifest.json"),
+    `${JSON.stringify(manifest, null, 2)}\n`,
+    "utf8"
+  );
+
+  console.log(`Synced ${manifest.sources.length} docs across ${products.length} products`);
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
