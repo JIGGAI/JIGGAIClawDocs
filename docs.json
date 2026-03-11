@@ -81,6 +81,9 @@
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
   },
+  "modeToggle": {
+    "default": "dark"
+  },
   "navbar": {
     "links": [
       {
