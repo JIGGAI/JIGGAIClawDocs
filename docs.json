@@ -130,7 +130,7 @@
   "description": "Project documentation for ClawRecipes and ClawKitchen",
   "appearance": {
     "strict": false,
-    "default": "dark"
+    "default": "system"
   },
   "background": {
     "decoration": "grid"
