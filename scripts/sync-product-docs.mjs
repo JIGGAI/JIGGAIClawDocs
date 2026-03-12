@@ -26,8 +26,7 @@ const products = [
       "CLAWCIPES_KITCHEN.md",
       "TUTORIAL_CREATE_RECIPE.md",
       "shared-context.md",
-      "verify-built-in-team-recipes.md",
-      "releasing.md"
+      "verify-built-in-team-recipes.md"
     ]
   },
   {
