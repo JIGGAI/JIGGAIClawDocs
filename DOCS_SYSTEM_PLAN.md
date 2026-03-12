@@ -35,12 +35,13 @@ JIGGAIClawDocs/
 
 ## Sync rules
 
-1. Read markdown docs from each product repo.
-2. Convert them into Mintlify-ready `.mdx` pages.
-3. Add a generated header noting the source repo/path.
+1. Product repos are canonical. Write/edit product docs there first.
+2. Read markdown docs from each product repo.
+3. Convert them into Mintlify-ready `.mdx` pages.
 4. Write synced pages into product folders in `JIGGAIClawDocs`.
 5. Generate a manifest with source-to-target mappings.
-6. Keep hand-authored files limited to landing pages, shared pages, and Mintlify config.
+6. Keep hand-authored files limited to landing pages, shared pages, Mintlify config, and sync tooling.
+7. Do not let `JIGGAIClawDocs` become a parallel source of truth for product documentation.
 
 ## Frontmatter contract (target)
 

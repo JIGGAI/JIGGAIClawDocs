@@ -1,33 +1,37 @@
-> **First-time setup**: Customize this file for your project. Prompt the user to customize this file for their project.
-> For Mintlify product knowledge (components, configuration, writing standards),
-> install the Mintlify skill: `npx skills add https://mintlify.com/docs`
+# AGENTS.md
 
-# Documentation project instructions
+This repo is the Mintlify docs hub / publishing layer.
 
-## About this project
+## Canonical docs rule
 
-- This is a documentation site built on [Mintlify](https://mintlify.com)
-- Pages are MDX files with YAML frontmatter
-- Configuration lives in `docs.json`
-- Run `mint dev` to preview locally
-- Run `mint broken-links` to check links
+For product docs, the source of truth is the product repo:
 
-## Terminology
+- ClawRecipes docs → `~/ClawRecipes/docs/**`
+- ClawKitchen docs → `~/clawkitchen/docs/**`
 
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
+`~/JIGGAIClawDocs` is downstream-only for those docs.
+Do not treat synced `.mdx` pages here as the canonical place to author product documentation.
 
-## Style preferences
+## Edit policy
 
-{/* Add any project-specific style rules below */}
+Edit here directly only when changing:
 
-- Use active voice and second person ("you")
-- Keep sentences concise — one idea per sentence
-- Use sentence case for headings
-- Bold for UI elements: Click **Settings**
-- Code formatting for file names, commands, paths, and code references
+- Mintlify config and navigation
+- shared landing pages
+- docs-hub structure
+- sync scripts/manifests
+- presentation-only content that does not belong to one product repo
 
-## Content boundaries
+If a requested change is about a product feature/page, update the product repo doc first, then sync it into this repo.
 
-{/* Define what should and shouldn't be documented */}
-{/* Example: Don't document internal admin features */}
+## Preview
+
+```bash
+mint dev
+```
+
+## Sync
+
+```bash
+node scripts/sync-product-docs.mjs
+```
