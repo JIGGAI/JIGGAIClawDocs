@@ -3,10 +3,6 @@ title: "Architecture"
 description: "Overview of the ClawRecipes codebase for maintainers."
 ---
 
-# Architecture
-
-Overview of the ClawRecipes codebase for maintainers.
-
 ## Overview
 
 `index.ts` acts as thin CLI wiring: it registers commands via `api.registerCli` and delegates to handlers. Business logic lives in `src/handlers/` and `src/lib/`. The plugin exports `__internal` for test-only access to handlers and lib functions.
