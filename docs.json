@@ -36,8 +36,7 @@
               "clawrecipes/clawcipes-kitchen",
               "clawrecipes/tutorial-create-recipe",
               "clawrecipes/shared-context",
-              "clawrecipes/verify-built-in-team-recipes",
-              "clawrecipes/releasing"
+              "clawrecipes/verify-built-in-team-recipes"
             ]
           },
           {
