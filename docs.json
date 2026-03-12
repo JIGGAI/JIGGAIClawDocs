@@ -7,7 +7,7 @@
     "light": "#7a8598",
     "dark": "#141D2C"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "https://raw.githubusercontent.com/JIGGAI/ClawKitchen/refs/heads/main/public/favicon.ico",
   "navigation": {
     "tabs": [
       {
