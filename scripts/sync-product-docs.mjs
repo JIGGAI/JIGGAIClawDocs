@@ -68,6 +68,18 @@ function escapeYaml(value) {
   return String(value).replace(/"/g, '\\"');
 }
 
+function stripLeadingHeadingAndDescription(content, title, description) {
+  let text = content.replace(/^#\s+.+\n+/, "");
+
+  if (description) {
+    const escaped = description.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const descriptionPattern = new RegExp(`^${escaped}\\n+`, "i");
+    text = text.replace(descriptionPattern, "");
+  }
+
+  return text.replace(/^\n+/, "");
+}
+
 async function syncProduct(config) {
   const entries = await fs.readdir(config.sourceDir, { withFileTypes: true });
   const files = entries
@@ -94,7 +106,8 @@ async function syncProduct(config) {
     const title = titleFromContent(filename, sourceText);
     const description = descriptionFromContent(sourceText);
     const outputPath = path.join(config.outputDir, outputFilename);
-    const generated = `---\ntitle: "${escapeYaml(title)}"\ndescription: "${escapeYaml(description)}"\n---\n\n${sourceText}`;
+    const body = stripLeadingHeadingAndDescription(sourceText, title, description);
+    const generated = `---\ntitle: "${escapeYaml(title)}"\ndescription: "${escapeYaml(description)}"\n---\n\n${body}`;
     await fs.writeFile(outputPath, generated, "utf8");
     manifestEntries.push({
       product: config.product,
