@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "aspen",
+  "theme": "luma",
   "name": "JIGGAI Docs",
   "colors": {
     "primary": "#1D3257",
@@ -91,7 +91,6 @@
       ]
     }
   },
-  "logo": "/images/clawkitchen-logo.png",
   "modeToggle": {
     "default": "dark"
   },
@@ -134,5 +133,6 @@
   },
   "background": {
     "decoration": "gradient"
-  }
+  },
+  "logo": "/images/clawkitchen-logo-400.png"
 }
