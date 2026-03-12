@@ -1,55 +1,48 @@
-# Mintlify Starter Kit
+# JIGGAI docs hub
 
-Use the starter kit to get your docs deployed and ready to customize.
+This repo is the published Mintlify docs layer for JIGGAI products.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## Source of truth
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+Canonical docs live in the product repos:
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+- `~/ClawRecipes/docs/**`
+- `~/clawkitchen/docs/**`
 
-## AI-assisted writing
+`~/JIGGAIClawDocs` is **not** the source of truth for product docs.
+It is the downstream presentation/publishing repo.
 
-Set up your AI coding tool to work with Mintlify:
+## Working rule
+
+When product docs change:
+
+1. edit the docs in the product repo first
+2. sync/export them into this repo
+3. preview/publish from here
+
+Do **not** create or maintain canonical product docs here first and backfill later.
+If a page here was generated from a product repo, changes should go back to the product repo source file.
+
+## Local preview
+
+Install the Mintlify CLI:
 
 ```bash
-npx skills add https://mintlify.com/docs
-```
-
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
-
-See the [AI tools guides](/ai-tools) for tool-specific setup.
-
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
 npm i -g mint
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+Run the preview server from this repo root:
 
-```
+```bash
 mint dev
 ```
 
-View your local preview at `http://localhost:3000`.
+## Sync
 
-## Publishing changes
+Current sync script:
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+```bash
+node scripts/sync-product-docs.mjs
+```
 
-## Need help?
-
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+That script reads product-repo markdown and writes Mintlify-ready `.mdx` pages into this repo.
