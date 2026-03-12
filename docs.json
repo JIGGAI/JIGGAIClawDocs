@@ -132,7 +132,7 @@
     "default": "dark"
   },
   "background": {
-    "decoration": "gradient"
+    "decoration": "grid"
   },
   "logo": "/images/clawkitchen-logo-400.png"
 }
