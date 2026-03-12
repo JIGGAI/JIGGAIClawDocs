@@ -129,6 +129,10 @@
   },
   "description": "Project documentation for ClawRecipes and ClawKitchen",
   "appearance": {
-    "strict": true
+    "strict": false,
+    "default": "dark"
+  },
+  "background": {
+    "decoration": "grid"
   }
 }
