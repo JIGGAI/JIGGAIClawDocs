@@ -5,7 +5,7 @@
   "colors": {
     "primary": "#1D3257",
     "light": "#7a8598",
-    "dark": "#0b1321"
+    "dark": "#062864"
   },
   "favicon": "/images/favicon.png",
   "navigation": {
@@ -130,7 +130,7 @@
   "description": "Project documentation for ClawRecipes and ClawKitchen",
   "appearance": {
     "strict": false,
-    "default": "system"
+    "default": "dark"
   },
   "background": {
     "decoration": "gradient"
