@@ -44,8 +44,22 @@
             "group": "ClawKitchen",
             "pages": [
               "clawkitchen/index",
+              "clawkitchen/product-tour",
+              "clawkitchen/install-and-access",
+              "clawkitchen/agents",
+              "clawkitchen/recipes-and-scaffolding",
+              "clawkitchen/teams",
+              "clawkitchen/workflows",
+              "clawkitchen/runs",
+              "clawkitchen/tickets",
+              "clawkitchen/channels",
+              "clawkitchen/cron-jobs",
               "clawkitchen/goals",
-              "clawkitchen/qa-auth"
+              "clawkitchen/qa-auth",
+              "clawkitchen/settings",
+              "clawkitchen/examples",
+              "clawkitchen/orchestrator",
+              "clawkitchen/troubleshooting"
             ]
           }
         ]
