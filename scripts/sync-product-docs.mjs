@@ -3,6 +3,14 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+import {
+  descriptionFromContent,
+  escapeYaml,
+  slugFromFilename,
+  stripDuplicateIntro,
+  titleFromContent
+} from "./sync-product-docs-lib.mjs";
+
 const root = "/home/control/JIGGAIClawDocs";
 const products = [
   {
@@ -40,45 +48,6 @@ const products = [
   }
 ];
 
-function slugFromFilename(filename) {
-  return filename
-    .replace(/\.md$/i, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-function titleFromContent(filename, content) {
-  const firstHeading = content.match(/^#\s+(.+)$/m)?.[1]?.trim();
-  if (firstHeading) return firstHeading;
-  return filename
-    .replace(/\.md$/i, "")
-    .replace(/[_-]+/g, " ")
-    .replace(/\b\w/g, (m) => m.toUpperCase());
-}
-
-function descriptionFromContent(content) {
-  const lines = content.split(/\r?\n/).map((line) => line.trim());
-  const firstParagraph = lines.find((line) => line && !line.startsWith("#") && !line.startsWith("```"));
-  return firstParagraph ? firstParagraph.slice(0, 180) : "";
-}
-
-function escapeYaml(value) {
-  return String(value).replace(/"/g, '\\"');
-}
-
-function stripLeadingHeadingAndDescription(content, title, description) {
-  let text = content.replace(/^#\s+.+\n+/, "");
-
-  if (description) {
-    const escaped = description.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const descriptionPattern = new RegExp(`^${escaped}\\n+`, "i");
-    text = text.replace(descriptionPattern, "");
-  }
-
-  return text.replace(/^\n+/, "");
-}
-
 async function syncProduct(config) {
   const entries = await fs.readdir(config.sourceDir, { withFileTypes: true });
   const files = entries
@@ -99,15 +68,21 @@ async function syncProduct(config) {
   for (const filename of files) {
     const sourcePath = path.join(config.sourceDir, filename);
     const sourceText = await fs.readFile(sourcePath, "utf8");
+
     const slug = slugFromFilename(filename);
     const outputFilename = `${slug}.mdx`;
     if (config.exclude.has(outputFilename)) continue;
+
     const title = titleFromContent(filename, sourceText);
     const description = descriptionFromContent(sourceText);
+
     const outputPath = path.join(config.outputDir, outputFilename);
-    const body = stripLeadingHeadingAndDescription(sourceText, title, description);
+    const body = stripDuplicateIntro(sourceText, title, description);
+
     const generated = `---\ntitle: "${escapeYaml(title)}"\ndescription: "${escapeYaml(description)}"\n---\n\n${body}`;
+
     await fs.writeFile(outputPath, generated, "utf8");
+
     manifestEntries.push({
       product: config.product,
       sourceRepo: config.sourceRepo,
