@@ -3,9 +3,9 @@
   "theme": "aspen",
   "name": "JIGGAI Docs",
   "colors": {
-    "primary": "#F34849",
-    "light": "#9F3338",
-    "dark": "#391B21"
+    "primary": "#FF4D4D",
+    "light": "#435066",
+    "dark": "#141D2C"
   },
   "favicon": "/favicon.svg",
   "navigation": {
