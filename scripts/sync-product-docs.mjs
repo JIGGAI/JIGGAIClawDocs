@@ -8,7 +8,8 @@ import {
   escapeYaml,
   slugFromFilename,
   stripDuplicateIntro,
-  titleFromContent
+  titleFromContent,
+  sanitizeForMdx
 } from "./sync-product-docs-lib.mjs";
 
 const root = "/home/control/JIGGAIClawDocs";
@@ -77,7 +78,7 @@ async function syncProduct(config) {
     const description = descriptionFromContent(sourceText);
 
     const outputPath = path.join(config.outputDir, outputFilename);
-    const body = stripDuplicateIntro(sourceText, title, description);
+    const body = sanitizeForMdx(stripDuplicateIntro(sourceText, title, description));
 
     const generated = `---\ntitle: "${escapeYaml(title)}"\ndescription: "${escapeYaml(description)}"\n---\n\n${body}`;
 
