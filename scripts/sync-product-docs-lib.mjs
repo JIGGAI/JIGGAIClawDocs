@@ -150,3 +150,12 @@ export function stripDuplicateIntro(markdown, derivedTitle, derivedDescription) 
   text = stripLeadingBlankLines(text);
   return text;
 }
+
+// Mintlify/MDX is stricter than plain Markdown in a few places.
+// In particular, angle-bracket autolinks like <https://example.com> can be
+// interpreted as JSX and break builds. Convert them to standard markdown links.
+export function sanitizeForMdx(markdown) {
+  return String(markdown)
+    .replace(/<((?:https?:\/\/|mailto:)[^>\s]+)>/g, '[$1]($1)');
+}
+
