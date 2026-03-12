@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "aspen",
+  "theme": "luma",
   "name": "JIGGAI Docs",
   "colors": {
     "primary": "#1D3257",
@@ -127,5 +127,8 @@
       "linkedin": "https://www.linkedin.com"
     }
   },
-  "description": "Project documentation for ClawRecipes and ClawKitchen"
+  "description": "Project documentation for ClawRecipes and ClawKitchen",
+  "appearance": {
+    "strict": true
+  }
 }
