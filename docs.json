@@ -7,7 +7,7 @@
     "light": "#7a8598",
     "dark": "#141D2C"
   },
-  "favicon": "https://raw.githubusercontent.com/JIGGAI/ClawKitchen/refs/heads/main/public/favicon.ico",
+  "favicon": "/images/favicon.png",
   "navigation": {
     "tabs": [
       {
@@ -91,10 +91,7 @@
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
+  "logo": "/images/clawkitchen-logo-400.png",
   "modeToggle": {
     "default": "dark"
   },
