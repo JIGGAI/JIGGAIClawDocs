@@ -18,7 +18,7 @@ const products = [
     product: "clawrecipes",
     sourceRepo: "JIGGAI/ClawRecipes",
     sourceCommit: process.env.CLAWRECIPES_COMMIT ?? "unknown",
-    sourceDir: "/home/control/ClawRecipes/docs",
+    sourceDir: process.env.CLAWRECIPES_DOCS_DIR ?? "/home/control/ClawRecipes/docs",
     outputDir: path.join(root, "clawrecipes"),
     exclude: new Set(["index.mdx"]),
     order: [
@@ -42,12 +42,28 @@ const products = [
     product: "clawkitchen",
     sourceRepo: "JIGGAI/ClawKitchen",
     sourceCommit: process.env.CLAWKITCHEN_COMMIT ?? "unknown",
-    sourceDir: "/home/control/clawkitchen/docs",
+    sourceDir: process.env.CLAWKITCHEN_DOCS_DIR ?? "/home/control/clawkitchen/docs",
     outputDir: path.join(root, "clawkitchen"),
     exclude: new Set(["index.mdx"]),
     order: ["GOALS.md", "QA_AUTH.md"]
   }
 ];
+
+function generatedHeaderBlock({ sourceRepo, sourcePath, sourceCommit }) {
+  const editUrl = sourceRepo?.includes("/")
+    ? `https://github.com/${sourceRepo}/blob/${sourceCommit || "main"}/${sourcePath}`
+    : "";
+
+  const lines = [
+    "> **Generated file — do not edit here.**",
+    `> Source: \`${sourceRepo}\` / \`${sourcePath}\``,
+    `> Commit: \`${sourceCommit}\``
+  ];
+
+  if (editUrl) lines.push(`> Edit: ${editUrl}`);
+
+  return `${lines.join("\n")}\n`;
+}
 
 async function syncProduct(config) {
   const entries = await fs.readdir(config.sourceDir, { withFileTypes: true });
@@ -80,14 +96,31 @@ async function syncProduct(config) {
     const outputPath = path.join(config.outputDir, outputFilename);
     const body = sanitizeForMdx(stripDuplicateIntro(sourceText, title, description));
 
-    const generated = `---\ntitle: "${escapeYaml(title)}"\ndescription: "${escapeYaml(description)}"\n---\n\n${body}`;
+    const sourceDocPath = `docs/${filename}`;
+
+    const frontmatter = [
+      "---",
+      `title: \"${escapeYaml(title)}\"`,
+      `description: \"${escapeYaml(description)}\"`,
+      `generated: true`,
+      `source_repo: \"${escapeYaml(config.sourceRepo)}\"`,
+      `source_path: \"${escapeYaml(sourceDocPath)}\"`,
+      `source_commit: \"${escapeYaml(config.sourceCommit)}\"`,
+      "---"
+    ].join("\n");
+
+    const generated = `${frontmatter}\n\n${generatedHeaderBlock({
+      sourceRepo: config.sourceRepo,
+      sourcePath: sourceDocPath,
+      sourceCommit: config.sourceCommit
+    })}\n${body}`;
 
     await fs.writeFile(outputPath, generated, "utf8");
 
     manifestEntries.push({
       product: config.product,
       sourceRepo: config.sourceRepo,
-      sourcePath: `docs/${filename}`,
+      sourcePath: sourceDocPath,
       targetPath: `${config.product}/${outputFilename}`,
       sourceCommit: config.sourceCommit,
       title

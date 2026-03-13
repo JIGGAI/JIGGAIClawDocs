@@ -1,0 +1,46 @@
+name: Docs sync check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  sync-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout docs site
+        uses: actions/checkout@v4
+        with:
+          path: JIGGAIClawDocs
+
+      - name: Checkout ClawRecipes
+        uses: actions/checkout@v4
+        with:
+          repository: JIGGAI/ClawRecipes
+          path: ClawRecipes
+
+      - name: Checkout ClawKitchen
+        uses: actions/checkout@v4
+        with:
+          repository: JIGGAI/ClawKitchen
+          path: ClawKitchen
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Sync docs + fail on diff
+        working-directory: JIGGAIClawDocs
+        env:
+          CLAWRECIPES_DOCS_DIR: ${{ github.workspace }}/ClawRecipes/docs
+          CLAWKITCHEN_DOCS_DIR: ${{ github.workspace }}/ClawKitchen/docs
+          # Commits are best-effort; used only for "Edit" links in generated headers
+          CLAWRECIPES_COMMIT: local
+          CLAWKITCHEN_COMMIT: local
+        run: |
+          export CLAWRECIPES_COMMIT=$(git -C "${{ github.workspace }}/ClawRecipes" rev-parse HEAD)
+          export CLAWKITCHEN_COMMIT=$(git -C "${{ github.workspace }}/ClawKitchen" rev-parse HEAD)
+          npm run docs:sync
+          git diff --exit-code

@@ -1,0 +1,10 @@
+{
+  "name": "jiggai-claw-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "docs:sync": "node ./scripts/sync-product-docs.mjs",
+    "docs:check": "node ./scripts/sync-product-docs.mjs && git diff --exit-code",
+    "test": "node ./scripts/sync-product-docs-lib.test.mjs"
+  }
+}
