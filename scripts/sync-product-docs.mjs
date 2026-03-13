@@ -176,7 +176,7 @@ async function syncProduct(config) {
 async function main() {
   await fs.mkdir(path.join(root, "generated"), { recursive: true });
   const manifest = {
-    generatedAt: new Date().toISOString(),
+    generatedAt: "static",
     sources: []
   };
 
