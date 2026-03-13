@@ -2,6 +2,7 @@
 
 import fs from "node:fs/promises";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 
 import {
   descriptionFromContent,
@@ -13,12 +14,35 @@ import {
 } from "./sync-product-docs-lib.mjs";
 
 const root = "/home/control/JIGGAIClawDocs";
+
+function gitHeadCommit(repoDir) {
+  try {
+    return execFileSync("git", ["-C", repoDir, "rev-parse", "HEAD"], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"]
+    }).trim();
+  } catch {
+    return "unknown";
+  }
+}
+
+const clawrecipesDocsDir =
+  process.env.CLAWRECIPES_DOCS_DIR ?? "/home/control/ClawRecipes/docs";
+const clawrecipesRepoDir =
+  process.env.CLAWRECIPES_REPO_DIR ?? path.resolve(clawrecipesDocsDir, "..");
+
+const clawkitchenDocsDir =
+  process.env.CLAWKITCHEN_DOCS_DIR ?? "/home/control/clawkitchen/docs";
+const clawkitchenRepoDir =
+  process.env.CLAWKITCHEN_REPO_DIR ?? path.resolve(clawkitchenDocsDir, "..");
+
 const products = [
   {
     product: "clawrecipes",
     sourceRepo: "JIGGAI/ClawRecipes",
-    sourceCommit: process.env.CLAWRECIPES_COMMIT ?? "unknown",
-    sourceDir: process.env.CLAWRECIPES_DOCS_DIR ?? "/home/control/ClawRecipes/docs",
+    sourceCommit:
+      process.env.CLAWRECIPES_COMMIT ?? gitHeadCommit(clawrecipesRepoDir),
+    sourceDir: clawrecipesDocsDir,
     outputDir: path.join(root, "clawrecipes"),
     exclude: new Set(["index.mdx"]),
     order: [
@@ -41,11 +65,30 @@ const products = [
   {
     product: "clawkitchen",
     sourceRepo: "JIGGAI/ClawKitchen",
-    sourceCommit: process.env.CLAWKITCHEN_COMMIT ?? "unknown",
-    sourceDir: process.env.CLAWKITCHEN_DOCS_DIR ?? "/home/control/clawkitchen/docs",
+    sourceCommit:
+      process.env.CLAWKITCHEN_COMMIT ?? gitHeadCommit(clawkitchenRepoDir),
+    sourceDir: clawkitchenDocsDir,
     outputDir: path.join(root, "clawkitchen"),
     exclude: new Set(["index.mdx"]),
-    order: ["GOALS.md", "QA_AUTH.md"]
+    order: [
+      "GOALS.md",
+      "QA_AUTH.md",
+      "AGENTS.md",
+      "CHANNELS.md",
+      "CRON_JOBS.md",
+      "EXAMPLES.md",
+      "INSTALL_AND_ACCESS.md",
+      "ORCHESTRATOR.md",
+      "PRODUCT_TOUR.md",
+      "README.md",
+      "RECIPES_AND_SCAFFOLDING.md",
+      "RUNS.md",
+      "SETTINGS.md",
+      "TEAMS.md",
+      "TICKETS.md",
+      "TROUBLESHOOTING.md",
+      "WORKFLOWS.md"
+    ]
   }
 ];
 
