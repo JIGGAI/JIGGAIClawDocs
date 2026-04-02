@@ -12,6 +12,24 @@ import {
   sanitizeForMdx
 } from "./sync-product-docs-lib.mjs";
 
+function generatedHeaderBlock({ sourceRepo, sourcePath, sourceCommit }) {
+  const editUrl = sourceRepo?.includes("/")
+    ? `https://github.com/${sourceRepo}/blob/${sourceCommit || "main"}/${sourcePath}`
+    : "";
+
+  const lines = [
+    "<Info>",
+    "**Generated file — do not edit here.**",
+    `Source: \`${sourceRepo}\` / \`${sourcePath}\``,
+    `Commit: \`${sourceCommit}\``
+  ];
+
+  if (editUrl) lines.push(`Edit: ${editUrl}`);
+  lines.push("</Info>");
+
+  return `${lines.join("\n")}\n`;
+}
+
 const root = "/home/control/JIGGAIClawDocs";
 const products = [
   {
@@ -80,7 +98,25 @@ async function syncProduct(config) {
     const outputPath = path.join(config.outputDir, outputFilename);
     const body = sanitizeForMdx(stripDuplicateIntro(sourceText, title, description));
 
-    const generated = `---\ntitle: "${escapeYaml(title)}"\ndescription: "${escapeYaml(description)}"\n---\n\n${body}`;
+    const frontmatter = [
+      "---",
+      `title: "${escapeYaml(title)}",`,
+      `description: "${escapeYaml(description)}",`,
+      "generated: true",
+      `source_repo: "${config.sourceRepo}",`,
+      `source_path: "docs/${filename}",`,
+      `source_commit: "${config.sourceCommit}"`,
+      "---",
+      ""
+    ].join("\n");
+
+    const header = generatedHeaderBlock({
+      sourceRepo: config.sourceRepo,
+      sourcePath: `docs/${filename}`,
+      sourceCommit: config.sourceCommit
+    });
+
+    const generated = `${frontmatter}${header}\n${body}`;
 
     await fs.writeFile(outputPath, generated, "utf8");
 
