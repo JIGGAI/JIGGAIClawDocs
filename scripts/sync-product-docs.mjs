@@ -93,14 +93,7 @@ const products = [
   }
 ];
 
-function generatedHeaderBlock({ sourceRepo, sourcePath, sourceCommit }) {
-  const editUrl = sourceRepo?.includes("/")
-    ? `https://github.com/${sourceRepo}/blob/${sourceCommit || "main"}/${sourcePath}`
-    : "";
-
-  if (!editUrl) return "";
-  return `[View source on GitHub](${editUrl})\n`;
-}
+// Source provenance is tracked in frontmatter only — nothing visible in the page body.
 
 async function syncProduct(config) {
   const entries = await fs.readdir(config.sourceDir, { withFileTypes: true });
@@ -146,11 +139,7 @@ async function syncProduct(config) {
       "---"
     ].join("\n");
 
-    const generated = `${frontmatter}\n\n${generatedHeaderBlock({
-      sourceRepo: config.sourceRepo,
-      sourcePath: sourceDocPath,
-      sourceCommit: config.sourceCommit
-    })}\n${body}`;
+    const generated = `${frontmatter}\n\n${body}`;
 
     await fs.writeFile(outputPath, generated, "utf8");
 
