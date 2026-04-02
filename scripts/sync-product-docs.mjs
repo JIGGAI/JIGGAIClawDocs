@@ -98,12 +98,14 @@ function generatedHeaderBlock({ sourceRepo, sourcePath, sourceCommit }) {
     : "";
 
   const lines = [
-    "> **Generated file — do not edit here.**",
-    `> Source: \`${sourceRepo}\` / \`${sourcePath}\``,
-    `> Commit: \`${sourceCommit}\``
+    "<Info>",
+    "**Generated file — do not edit here.**",
+    `Source: \`${sourceRepo}\` / \`${sourcePath}\``,
+    `Commit: \`${sourceCommit}\``
   ];
 
-  if (editUrl) lines.push(`> Edit: ${editUrl}`);
+  if (editUrl) lines.push(`Edit: ${editUrl}`);
+  lines.push("</Info>");
 
   return `${lines.join("\n")}\n`;
 }
