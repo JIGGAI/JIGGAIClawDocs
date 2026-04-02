@@ -97,15 +97,8 @@ function generatedHeaderBlock({ sourceRepo, sourcePath, sourceCommit }) {
     ? `https://github.com/${sourceRepo}/blob/${sourceCommit || "main"}/${sourcePath}`
     : "";
 
-  const lines = [
-    "> **Generated file — do not edit here.**",
-    `> Source: \`${sourceRepo}\` / \`${sourcePath}\``,
-    `> Commit: \`${sourceCommit}\``
-  ];
-
-  if (editUrl) lines.push(`> Edit: ${editUrl}`);
-
-  return `${lines.join("\n")}\n`;
+  if (!editUrl) return "";
+  return `[View source on GitHub](${editUrl})\n`;
 }
 
 async function syncProduct(config) {
