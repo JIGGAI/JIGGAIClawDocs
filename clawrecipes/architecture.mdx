@@ -7,8 +7,6 @@ source_path: "docs/ARCHITECTURE.md"
 source_commit: "b9cabfdc5f9f6f42794ac51b5592ddf4b4d77bbc"
 ---
 
-[View source on GitHub](https://github.com/JIGGAI/ClawRecipes/blob/b9cabfdc5f9f6f42794ac51b5592ddf4b4d77bbc/docs/ARCHITECTURE.md)
-
 ## Overview
 
 `index.ts` acts as thin CLI wiring: it registers commands via `api.registerCli` and delegates to handlers. Business logic lives in `src/handlers/` and `src/lib/`. The plugin exports `__internal` for test-only access to handlers and lib functions.
