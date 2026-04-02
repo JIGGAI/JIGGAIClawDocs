@@ -6,7 +6,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/INSTALLATION.md",
       "targetPath": "clawrecipes/installation.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Installation"
     },
     {
@@ -14,7 +14,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/COMMANDS.md",
       "targetPath": "clawrecipes/commands.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "ClawRecipes command reference"
     },
     {
@@ -22,7 +22,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/ARCHITECTURE.md",
       "targetPath": "clawrecipes/architecture.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Architecture"
     },
     {
@@ -30,7 +30,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/RECIPE_FORMAT.md",
       "targetPath": "clawrecipes/recipe-format.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Recipe format"
     },
     {
@@ -38,7 +38,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/TEAM_WORKFLOW.md",
       "targetPath": "clawrecipes/team-workflow.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Team workflow"
     },
     {
@@ -46,7 +46,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/WORKFLOW_RUNS_FILE_FIRST.md",
       "targetPath": "clawrecipes/workflow-runs-file-first.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Workflow runs: file-first guide"
     },
     {
@@ -54,7 +54,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/MEMORY_MODEL.md",
       "targetPath": "clawrecipes/memory-model.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Memory Model (Assistant vs Team vs Role)"
     },
     {
@@ -62,7 +62,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/BUNDLED_RECIPES.md",
       "targetPath": "clawrecipes/bundled-recipes.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Bundled recipes"
     },
     {
@@ -70,7 +70,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/AGENTS_AND_SKILLS.md",
       "targetPath": "clawrecipes/agents-and-skills.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Agents and skills"
     },
     {
@@ -78,7 +78,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/OUTBOUND_POSTING.md",
       "targetPath": "clawrecipes/outbound-posting.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Outbound posting for workflows"
     },
     {
@@ -86,7 +86,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/CLAWCIPES_KITCHEN.md",
       "targetPath": "clawrecipes/clawcipes-kitchen.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "ClawKitchen and ClawRecipes"
     },
     {
@@ -94,7 +94,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/TUTORIAL_CREATE_RECIPE.md",
       "targetPath": "clawrecipes/tutorial-create-recipe.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Tutorial: create your first recipe"
     },
     {
@@ -102,7 +102,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/shared-context.md",
       "targetPath": "clawrecipes/shared-context.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Shared context conventions (team workspaces)"
     },
     {
@@ -110,7 +110,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/verify-built-in-team-recipes.md",
       "targetPath": "clawrecipes/verify-built-in-team-recipes.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Verify built-in team recipes (scaffold + cron jobs)"
     },
     {
@@ -118,7 +118,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/MEMORY_SYSTEM.md",
       "targetPath": "clawrecipes/memory-system.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Memory System"
     },
     {
@@ -126,7 +126,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/releasing.md",
       "targetPath": "clawrecipes/releasing.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Releasing `@jiggai/recipes`"
     },
     {
@@ -134,7 +134,7 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/SWARM_ORCHESTRATOR.md",
       "targetPath": "clawrecipes/swarm-orchestrator.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Swarm Orchestrator"
     },
     {
@@ -142,15 +142,23 @@
       "sourceRepo": "JIGGAI/ClawRecipes",
       "sourcePath": "docs/WORKFLOW_EXAMPLES.md",
       "targetPath": "clawrecipes/workflow-examples.mdx",
-      "sourceCommit": "69495358e330a8bf36406952cc2dda21ec584376",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
       "title": "Workflow examples"
+    },
+    {
+      "product": "clawrecipes",
+      "sourceRepo": "JIGGAI/ClawRecipes",
+      "sourcePath": "docs/WORKFLOW_FIXES_2026-03-13.md",
+      "targetPath": "clawrecipes/workflow-fixes-2026-03-13.mdx",
+      "sourceCommit": "a1472b3682867c798e60507c93bbd669635923a0",
+      "title": "Workflow fixes (2026-03-13)"
     },
     {
       "product": "clawkitchen",
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/GOALS.md",
       "targetPath": "clawkitchen/goals.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Goals"
     },
     {
@@ -158,7 +166,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/QA_AUTH.md",
       "targetPath": "clawkitchen/qa-auth.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "QA / auth"
     },
     {
@@ -166,7 +174,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/AGENTS.md",
       "targetPath": "clawkitchen/agents.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Agents"
     },
     {
@@ -174,7 +182,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/CHANNELS.md",
       "targetPath": "clawkitchen/channels.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Channels and bindings"
     },
     {
@@ -182,7 +190,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/CRON_JOBS.md",
       "targetPath": "clawkitchen/cron-jobs.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Cron jobs"
     },
     {
@@ -190,7 +198,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/EXAMPLES.md",
       "targetPath": "clawkitchen/examples.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Practical examples"
     },
     {
@@ -198,7 +206,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/INSTALL_AND_ACCESS.md",
       "targetPath": "clawkitchen/install-and-access.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Install and access"
     },
     {
@@ -206,7 +214,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/ORCHESTRATOR.md",
       "targetPath": "clawkitchen/orchestrator.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Orchestrator and advanced operations"
     },
     {
@@ -214,7 +222,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/PRODUCT_TOUR.md",
       "targetPath": "clawkitchen/product-tour.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Product tour"
     },
     {
@@ -222,7 +230,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/README.md",
       "targetPath": "clawkitchen/readme.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "ClawKitchen"
     },
     {
@@ -230,7 +238,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/RECIPES_AND_SCAFFOLDING.md",
       "targetPath": "clawkitchen/recipes-and-scaffolding.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Recipes and scaffolding"
     },
     {
@@ -238,7 +246,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/RUNS.md",
       "targetPath": "clawkitchen/runs.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Runs"
     },
     {
@@ -246,7 +254,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/SETTINGS.md",
       "targetPath": "clawkitchen/settings.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Settings"
     },
     {
@@ -254,7 +262,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/TEAMS.md",
       "targetPath": "clawkitchen/teams.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Teams"
     },
     {
@@ -262,7 +270,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/TICKETS.md",
       "targetPath": "clawkitchen/tickets.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Tickets"
     },
     {
@@ -270,7 +278,7 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/TROUBLESHOOTING.md",
       "targetPath": "clawkitchen/troubleshooting.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Troubleshooting"
     },
     {
@@ -278,7 +286,39 @@
       "sourceRepo": "JIGGAI/ClawKitchen",
       "sourcePath": "docs/WORKFLOWS.md",
       "targetPath": "clawkitchen/workflows.mdx",
-      "sourceCommit": "096dfbecf98dcd12e2a5a1db3b11cb9df2d67718",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
+      "title": "Workflows"
+    },
+    {
+      "product": "clawkitchen",
+      "sourceRepo": "JIGGAI/ClawKitchen",
+      "sourcePath": "docs/MEDIA_GENERATION.md",
+      "targetPath": "clawkitchen/media-generation.mdx",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
+      "title": "Media Generation Workflows"
+    },
+    {
+      "product": "clawkitchen",
+      "sourceRepo": "JIGGAI/ClawKitchen",
+      "sourcePath": "docs/TEAM_MEMORY.md",
+      "targetPath": "clawkitchen/team-memory.mdx",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
+      "title": "Team Memory Management"
+    },
+    {
+      "product": "clawkitchen",
+      "sourceRepo": "JIGGAI/ClawKitchen",
+      "sourcePath": "docs/WORKFLOW_VISUAL_EDITOR.md",
+      "targetPath": "clawkitchen/workflow-visual-editor.mdx",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
+      "title": "Workflow Visual Editor"
+    },
+    {
+      "product": "clawkitchen",
+      "sourceRepo": "JIGGAI/ClawKitchen",
+      "sourcePath": "docs/WORKFLOWS_OLD.md",
+      "targetPath": "clawkitchen/workflows-old.mdx",
+      "sourceCommit": "f035bd27f55c0bba9c870f4a7fc656814810954a",
       "title": "Workflows"
     }
   ]
