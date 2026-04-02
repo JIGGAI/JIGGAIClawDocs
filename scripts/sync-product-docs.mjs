@@ -13,7 +13,7 @@ import {
   sanitizeForMdx
 } from "./sync-product-docs-lib.mjs";
 
-const root = "/home/control/JIGGAIClawDocs";
+const root = process.env.DOCS_ROOT ?? process.cwd();
 
 function gitHeadCommit(repoDir) {
   try {
