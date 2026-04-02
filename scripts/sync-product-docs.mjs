@@ -13,7 +13,8 @@ import {
   sanitizeForMdx
 } from "./sync-product-docs-lib.mjs";
 
-const root = "/home/control/JIGGAIClawDocs";
+import { fileURLToPath } from "node:url";
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 function gitHeadCommit(repoDir) {
   try {
