@@ -17,17 +17,8 @@ function generatedHeaderBlock({ sourceRepo, sourcePath, sourceCommit }) {
     ? `https://github.com/${sourceRepo}/blob/${sourceCommit || "main"}/${sourcePath}`
     : "";
 
-  const lines = [
-    "<Info>",
-    "**Generated file — do not edit here.**",
-    `Source: \`${sourceRepo}\` / \`${sourcePath}\``,
-    `Commit: \`${sourceCommit}\``
-  ];
-
-  if (editUrl) lines.push(`Edit: ${editUrl}`);
-  lines.push("</Info>");
-
-  return `${lines.join("\n")}\n`;
+  if (!editUrl) return "";
+  return `[View source on GitHub](${editUrl})\n`;
 }
 
 const root = "/home/control/JIGGAIClawDocs";
