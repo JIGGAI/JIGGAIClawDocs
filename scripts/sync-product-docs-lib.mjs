@@ -89,7 +89,14 @@ export function descriptionFromContent(markdown) {
     }
 
     const paragraph = normalizeInline(paraLines.join("\n"));
-    return paragraph ? paragraph.slice(0, 180) : "";
+    if (!paragraph) return "";
+    
+    // Truncate at word boundaries, max 180 chars
+    if (paragraph.length <= 180) return paragraph;
+    
+    const truncated = paragraph.slice(0, 180);
+    const lastSpace = truncated.lastIndexOf(" ");
+    return lastSpace > 140 ? truncated.slice(0, lastSpace) : truncated;
   }
 
   return "";
