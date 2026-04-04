@@ -35,14 +35,12 @@
               "clawrecipes/team-workflow",
               "clawrecipes/workflow-runs-file-first",
               "clawrecipes/workflow-examples",
-              "clawrecipes/workflow-fixes-2026-03-13",
               "clawrecipes/memory-model",
               "clawrecipes/memory-system",
               "clawrecipes/bundled-recipes",
               "clawrecipes/agents-and-skills",
               "clawrecipes/shared-context",
               "clawrecipes/outbound-posting",
-              "clawrecipes/releasing",
               "clawrecipes/swarm-orchestrator",
               "clawrecipes/clawcipes-kitchen",
               "clawrecipes/tutorial-create-recipe",
@@ -135,7 +133,6 @@
     "socials": {
       "x": "https://x.com/clawrecipes",
       "github": "https://github.com/JIGGAI",
-      "linkedin": "https://www.linkedin.com"
     }
   },
   "description": "Project documentation for ClawRecipes and ClawKitchen",
