@@ -4,7 +4,7 @@ description: "All commands are under:"
 generated: true
 source_repo: "JIGGAI/ClawRecipes"
 source_path: "docs/COMMANDS.md"
-source_commit: "b9cabfdc5f9f6f42794ac51b5592ddf4b4d77bbc"
+source_commit: "ee41b7a38d9057f37863402bc2581c1b238c4763"
 ---
 
 ```bash
@@ -272,6 +272,18 @@ openclaw recipes workflows worker-tick \
   --agent-id development-team-lead \
   --limit 10
 ```
+
+### Media driver commands
+
+List registered media generation drivers (and whether required API keys are present):
+
+```bash
+openclaw recipes workflows media-drivers
+```
+
+This is what ClawKitchen uses to populate the media provider dropdown.
+
+More: [MEDIA_DRIVERS.md](media-drivers)
 
 ### Approval commands
 
